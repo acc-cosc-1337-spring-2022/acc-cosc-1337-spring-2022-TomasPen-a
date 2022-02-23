@@ -24,35 +24,57 @@ Display:
 GPA 3.0
 
 */
-int main() 
-{
-	string letter_grade;
-	int credit_hours, sum_credit_hours = 0, sum_credit_points = 0;
+//int main() 
+//{
+//	string letter_grade;
+//	int credit_hours, sum_credit_hours = 0, sum_credit_points = 0;
+//
+//	cout << "Enter letter grade: ";
+//	cin >> letter_grade;
+//	cout << "Enter credit hours: ";
+//	cin >> credit_hours;
+//	sum_credit_points += get_grade_points(letter_grade) * credit_hours;
+//	sum_credit_hours += credit_hours;
+//
+//	cout << "Enter letter grade: ";
+//	cin >> letter_grade;
+//	cout << "Enter credit hours: ";
+//	cin >> credit_hours;
+//	sum_credit_points += get_grade_points(letter_grade)  * credit_hours;
+//	sum_credit_hours += credit_hours;
+//
+//	cout << "Enter letter grade: ";
+//	cin >> letter_grade;
+//	cout << "Enter credit hours: ";
+//	cin >> credit_hours;
+//	sum_credit_points += get_grade_points(letter_grade)  * credit_hours;
+//	sum_credit_hours += credit_hours;
+//
+//
+//	double gpa = calculate_gpa(sum_credit_hours, sum_credit_points);
+//	cout << "GPA: " << gpa;
+//
+//	return 0;
+//}
+//----------------------------------------------------------------------------------------
 
-	cout << "Enter letter grade: ";
-	cin >> letter_grade;
-	cout << "Enter credit hours: ";
-	cin >> credit_hours;
-	sum_credit_points += get_grade_points(letter_grade) * credit_hours;
-	sum_credit_hours += credit_hours;
+int main()
+{	
+	//Getting numerical grade input, then assigning it to grade_input
+	int grade_input;
+	std::cout << "Enter numerical grade: ";
+	std::cin >> grade_input;
 
-	cout << "Enter letter grade: ";
-	cin >> letter_grade;
-	cout << "Enter credit hours: ";
-	cin >> credit_hours;
-	sum_credit_points += get_grade_points(letter_grade)  * credit_hours;
-	sum_credit_hours += credit_hours;
-
-	cout << "Enter letter grade: ";
-	cin >> letter_grade;
-	cout << "Enter credit hours: ";
-	cin >> credit_hours;
-	sum_credit_points += get_grade_points(letter_grade)  * credit_hours;
-	sum_credit_hours += credit_hours;
-
-
-	double gpa = calculate_gpa(sum_credit_hours, sum_credit_points);
-	cout << "GPA: " << gpa;
-
+	//Calling both getting letter grade functions and displaying the letter grade
+	if(grade_input<=100 && grade_input>=0)
+	{
+		std::cout<<"Letter grade using if: "<<get_letter_grade_using_if(grade_input)<<'\n';
+		std::cout<<"Letter grade using switch: "<<get_letter_grade_using_switch(grade_input)<<'\n';
+	}
+	else
+	{	
+		//Displays if numerical grade is out of range
+		std::cout<<"The given number is out of range.";
+	}
 	return 0;
 }

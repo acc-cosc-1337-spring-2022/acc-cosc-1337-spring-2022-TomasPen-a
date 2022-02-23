@@ -51,40 +51,41 @@ using namespace std;
 //-------------------------------------------------------------------------------------------------------
 
 //Getting letter grade using if-else-if
-char get_letter_grade_using_if(int letter_grade)
+std::string get_letter_grade_using_if(int grade)
 {
-	if (letter_grade>=90 && letter_grade<=100) 
+	std::string letter_grade;
+
+	if (grade>=90 && grade<=100) 
 	{
-		return 'A';
+		letter_grade = "A";
 	}
-	else if(letter_grade>=80 && letter_grade<=89) 
+		else if(grade>=80 && grade<=89) 
 	{
-		return 'B';
+			letter_grade = "B";
 	}
-	else if (letter_grade>=70 && letter_grade<=79)
+		else if (grade>=70 && grade<=79)
 	{
-		return 'C';
+			letter_grade = "C";
 	}
-	else if (letter_grade>=60 && letter_grade<=69)
+		else if (grade>=60 && grade<=69)
 	{
-		return 'D';
+			letter_grade = "D";
 	}
-	else 
+		else 
 	{
-		return 'F';
+			letter_grade = "F";
 	}
+	return letter_grade;
 }
 
 //Getting letter grade using a switch construct
-char get_letter_grade_using_switch(int letter_grade)
+std::string get_letter_grade_using_switch(int grade)
 {
-	int grade = letter_grade/10;
-	char result;
-	switch(grade)
+	std::string result;
+
+	switch(grade/10)
 	{
 		case 10:
-			result = 'A';
-			break;
 		case 9:
 			result = 'A';
 			break;

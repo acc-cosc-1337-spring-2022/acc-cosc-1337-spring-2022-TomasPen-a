@@ -12,7 +12,7 @@
 //--------------------------------------------------------------------------------------------------------
 
 //Getting letter grade using an if-else-if construct
-char get_letter_grade_using_if(int); 
+std::string get_letter_grade_using_if(int grade); 
 
 //Getting letter grade using a switch construct
-char get_letter_grade_using_switch(int);
+std::string get_letter_grade_using_switch(int grade);

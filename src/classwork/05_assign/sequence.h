@@ -1,14 +1,18 @@
-//write include statements for string and vector
+#include<string>
+using namespace std;
+
+//prototypes
+double get_gc_content(const string & dna);
+
+string get_dna_complement(string);
+
+string reverse_string(string);
 
 
-/*
-Write prototype for void function display_vector that accepts a parameter const reference vector of strings
-*/
+void display_menu();
 
+void run_menu();
 
-/*
-Write prototype for void function update_vector_element that accepts parameters reference vector of strings,
-a string search_value, and a string replace_value.
-*/
+void handle_menu_option(int option);
 
-
+std::string dna_string_check();

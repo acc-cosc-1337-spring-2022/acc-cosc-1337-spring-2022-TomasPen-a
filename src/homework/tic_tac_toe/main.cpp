@@ -5,11 +5,27 @@ int main()
 {
 	TicTacToe game;
 	string first_player;
+	bool play_choice = false;
 	char choice;
+
 	do
 	{
-		cout<<"Enter first player (X or O): ";
-		cin>>first_player;
+		do
+		{
+			cout<<"Enter first player (X or O): ";
+			cin>>first_player;
+			if(first_player == "X" || first_player == "O")
+			{
+				play_choice = true;
+			}
+			else
+			{
+				cout<<"invalid entry!\n";
+				play_choice = false;
+			}
+			
+	    }while(play_choice == false);
+		
 		game.start_game(first_player);
 
 		int position;
@@ -21,6 +37,8 @@ int main()
 			game.display_board();
 
 		}
+		cout<<"\nWinner: "<<game.get_winner()<<"\n";
+		
 		cout<<"continue type Y: ";
 		cin>>choice;
 	}while(choice == 'Y' || choice == 'y');

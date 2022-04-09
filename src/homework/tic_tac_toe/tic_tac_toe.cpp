@@ -31,12 +31,12 @@ void TicTacToe::mark_board(int position)
     set_next_player();
 }
 
-void TicTacToe::display_board()const{
-    for(int i=0; i < 9; i+=3)
-    {
-        std::cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
-    }
-}
+// void TicTacToe::display_board()const{
+//     for(int i=0; i < 9; i+=3)
+//     {
+//         std::cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
+//     }
+// }
 
 void TicTacToe::set_next_player()
 {
@@ -169,5 +169,50 @@ void TicTacToe::set_winner()
     {
         winner = "X";
     }
+    
+}
+
+std::istream& operator>>(std::istream& in, TicTacToe& game)
+{
+    int position;
+
+    std::cout<<"Enter your position (1-9): ";
+    in>>position;
+
+    if(position>=1 && position <=9)
+    {
+        game.mark_board(position);
+
+    }
+    else 
+    {
+        std::cout<<"\nInvalid Position";
+    }
+
+    return in;
+}
+
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
+{
+    int board = game.pegs.size();
+
+    if (board == 9)
+    {
+        out<<game.pegs[0]<<"|"<<game.pegs[1]<<"|"<<game.pegs[2]<<"\n"
+        <<game.pegs[3]<<"|"<<game.pegs[4]<<"|"<<game.pegs[5]<<"\n"
+        <<game.pegs[6]<<"|"<<game.pegs[7]<<"|"<<game.pegs[8]<<"\n\n";
+    }
+    else if(board == 16)
+    {
+        out<<game.pegs[0]<<"|"<<game.pegs[1]<<"|"<<game.pegs[2]<<"|"<<game.pegs[3]<<"\n"
+        <<game.pegs[4]<<"|"<<game.pegs[5]<<"|"<<game.pegs[6]<<game.pegs[7]<<"\n"
+        <<game.pegs[8]<<"|"<<game.pegs[9]<<"|"<<game.pegs[10]<<game.pegs[11]<<"\n"
+        <<game.pegs[12]<<"|"<<game.pegs[13]<<"|"<<game.pegs[14]<<game.pegs[15]<<"\n\n";
+    }
+    else 
+    {
+        out<<"Size Error - Please Check\n";
+    }
+    return out;
     
 }

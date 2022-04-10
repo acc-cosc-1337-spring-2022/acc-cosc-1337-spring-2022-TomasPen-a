@@ -10,9 +10,9 @@ int main()
 	TicTacToe game;
 	string first_player;
 	string game_winner;
-	string play_again;
-	bool play_choice = false;
-	bool answer_valid = false;
+	string choice;
+	bool player_choice = false;
+	bool answer = false;
 	bool game_ended;
 	bool continue_game;
 	int x = 0;
@@ -27,15 +27,15 @@ do
 			cin>>first_player;
 			if(first_player == "X" || first_player == "O")
 			{
-				play_choice = true;
+				player_choice = true;
 			}
 			else
 			{
 				cout<<"invalid entry!\n";
-				play_choice = false;
+				player_choice = false;
 			}
 			
-	    }while(play_choice == false);
+	    }while(player_choice == false);
 		
 		game.start_game(first_player);
 
@@ -82,11 +82,11 @@ do
 		do
 		{
 			cout<<"Continue? (y/n): ";
-			cin>>play_again;
-			if(play_again == "y" || play_again == "n")
+			cin>>choice;
+			if(choice == "y" || choice == "n")
 			{
-				answer_valid = true;
-				if(play_again == "y")
+				answer = true;
+				if(choice == "y")
 				{
 					continue_game = true;
 				}
@@ -94,14 +94,13 @@ do
 				{
 					continue_game = false;
 				}
-				
 			}
 			else
 			{
 				cout<<"Invalid Entry!\n";
-				answer_valid = false;
+				answer = false;
 			}
-		} while (answer_valid == false);
+		} while (answer == false);
 	}while(continue_game == true);
 
 	cout<<"Game Over\n";

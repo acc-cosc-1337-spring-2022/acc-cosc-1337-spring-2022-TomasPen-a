@@ -1,6 +1,8 @@
 //cpp
 #include"tic_tac_toe.h"
+
 using std::string; using std::cout;
+using std::vector;
 
 bool TicTacToe::game_over()
 {
@@ -96,7 +98,7 @@ std::istream& operator>>(std::istream& in, TicTacToe& game)
     int position;
     if(game.pegs.size() == 9)
     {
-        std::cout<<"Enter your position (1-9): ";
+        cout<<"Enter your position (1-9): ";
         in>>position;
 
         if(position>=1 && position <=9)
@@ -106,12 +108,12 @@ std::istream& operator>>(std::istream& in, TicTacToe& game)
         }
         else 
         {
-            std::cout<<"\nInvalid Position";
+            cout<<"\nInvalid Position";
         }
     }
     else if(game.pegs.size() == 16)
     {
-        std::cout<<"Enter your position (1-16): ";
+        cout<<"Enter your position (1-16): ";
         in>>position;
 
         if(position>=1 && position <=16)
@@ -121,7 +123,7 @@ std::istream& operator>>(std::istream& in, TicTacToe& game)
         }
         else 
         {
-            std::cout<<"\nInvalid Position";
+            cout<<"\nInvalid Position";
         }
     }
     return in;
@@ -129,13 +131,13 @@ std::istream& operator>>(std::istream& in, TicTacToe& game)
 
 std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
 {
-    std::vector <std::string> pegs{9, " "};
+    vector<string>pegs{9, " "};
 
     if(game.pegs.size() == 9)
     {
         for(int i=0; i < 9; i+=3)
         {
-            std::cout<<game.pegs[i]<<"|"<<game.pegs[i+1]<<"|"<<game.pegs[i+2]<<"\n";
+            cout<<game.pegs[i]<<"|"<<game.pegs[i+1]<<"|"<<game.pegs[i+2]<<"\n";
 
         }
     }
@@ -143,7 +145,7 @@ std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
     {
         for(int i=0; i < 16; i+=4)
         {
-            std::cout<<game.pegs[i]<<"|"<<game.pegs[i+1]<<"|"<<game.pegs[i+2]<<"|"<<game.pegs[i+3]<<"\n";
+            cout<<game.pegs[i]<<"|"<<game.pegs[i+1]<<"|"<<game.pegs[i+2]<<"|"<<game.pegs[i+3]<<"\n";
 
         }
     }

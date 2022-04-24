@@ -5,10 +5,11 @@
 #include <iostream>
 
 using std::cout; using std::cin; using std::string;
+using std::make_unique; using std::unique_ptr;
 
 int main() 
 {
-	TicTacToeManager manager;
+	//declare variables
 	string first_player;
 	string game_winner;
 	string choice;
@@ -20,19 +21,22 @@ int main()
 	int o = 0;
 	int t = 0;
 
+    TicTacToeData d;
+    TicTacToeManager manager = TicTacToeManager(d);//
+
     do
     {
         //declare tictactoe object
-        std::unique_ptr<TicTacToe> game;
+        unique_ptr<TicTacToe> game;
 
-        do //have player choose grid type
+        do //board size validation
         {
             cout<<"Choose 3x3 or 4x4 grid (3/4): ";
             cin>>game_type;
 
         } while (!(game_type == 3 || game_type == 4));
 
-		do
+		do//player icon validation
 		{
 			cout<<"Enter first player (X or O): ";
 			cin>>first_player;
@@ -47,7 +51,7 @@ int main()
         {
             game = make_unique<TicTacToe4>();
         }
-        game->start_game(first_player);
+        game->start_game(first_player);//start game
 		do//print winner
 		{
 			cin>>*game;
@@ -55,7 +59,7 @@ int main()
 			if(game->game_over() == true)
 			{
 				game_winner = game->get_winner();
-				if(game_winner == "X" || game_winner == "O")
+				if(game_winner == "X" || game_winner == "O")//display X or O as winner
 				{
 					cout<<*game;
 					cout<<"Winner: "<<game_winner<<"\n";
@@ -67,7 +71,7 @@ int main()
 					game_ended = true;
 
 				}
-				else if(game_winner == "C")
+				else if(game_winner == "C")//display C if a tie
 				{
 					cout<<*game;
 					cout<<"Tie!\n";
@@ -111,6 +115,6 @@ int main()
 	}while(continue_game == true);
 
 	cout<<"Game Over\n";
-	cout<<manager;//prints past games
+	cout<<manager;//displays game session
 	return 0;
 }
